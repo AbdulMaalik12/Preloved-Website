@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UI Design Preview</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#F8FAFC; color:#0F172A; line-height:1.65; padding:24px; }
+    main { max-width: 960px; margin: 0 auto; background:#fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+    pre { background:#0b1020; color:#e5e7eb; padding:12px; border-radius:6px; overflow:auto; }
+    code { background:#f1f5f9; padding:2px 4px; border-radius:4px; }
+    h1,h2,h3 { color:#1E4AE8; }
+    a { color:#1E4AE8; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+    .loading { color:#64748B; }
+  </style>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+</head>
+<body>
+  <main id="app">
+    <div class="loading">Loading UI Design Preview…</div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch('/UI_Design_Preview.md')
+      .then(r => r.text())
+      .then(md => {
+        const html = marked.parse(md);
+        document.getElementById('app').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('app').innerHTML = '<p>Failed to load markdown: ' + String(err) + '</p>';
+      });
+  </script>
+</body>
+</html>
