@@ -146,7 +146,9 @@
 @media (max-width: 900px) {
   .app-theme { font-size: 15px; }
   .app-theme .p-grid { gap: var(--ui-space-3); }
+  .ui-app__section { padding: var(--ui-space-4); }
 }
 @media (max-width: 600px) {
   .app-theme { font-size: 14px; }
+  .ui-app__section { padding: var(--ui-space-3); }
 }

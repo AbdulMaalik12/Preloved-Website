@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Sidebar } from 'primereact/sidebar'
+import { Button } from 'primereact/button'
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false)
   return (
     <header className="nav" role="navigation" aria-label="Main Navigation">
       <div className="nav-inner">
@@ -13,7 +17,17 @@ export default function Navbar() {
           <Link to="/cart">Cart</Link>
           <Link to="/account">Account</Link>
         </nav>
+        <Button className="menu-btn" icon="pi pi-bars" aria-label="Open menu" onClick={() => setOpen(true)} />
       </div>
+      <Sidebar visible={open} position="right" onHide={() => setOpen(false)} aria-label="Mobile Menu">
+        <div className="mobile-menu">
+          <Link to="/search?type=preloved" onClick={() => setOpen(false)}>Preloved</Link>
+          <Link to="/search?type=new" onClick={() => setOpen(false)}>New</Link>
+          <Link to="/seller/dashboard" onClick={() => setOpen(false)}>Sell</Link>
+          <Link to="/cart" onClick={() => setOpen(false)}>Cart</Link>
+          <Link to="/account" onClick={() => setOpen(false)}>Account</Link>
+        </div>
+      </Sidebar>
     </header>
   )
 }

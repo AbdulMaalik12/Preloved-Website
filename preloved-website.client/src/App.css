@@ -48,10 +48,13 @@
 .search { flex: 1 1 420px; max-width: 640px; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; }
 .links { display: flex; align-items: center; gap: 16px; }
 .links a { text-decoration: none; color: #0F172A; }
+.menu-btn { display: none; }
 
 @media (max-width: 900px) {
   .nav-inner { gap: 8px; padding: 8px 12px; }
   .search { flex: 1 1 240px; }
+  .links { display: none; }
+  .menu-btn { display: inline-flex; }
 }
 
 .page { max-width: 1100px; margin: 0 auto; padding: 16px; }
@@ -60,7 +63,7 @@
 .cta { display: flex; gap: 12px; }
 .button { background: #1E4AE8; color: #fff; border: none; padding: 10px 14px; border-radius: 6px; text-decoration: none; display: inline-block; }
 
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
 .card-item { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: #fff; }
 .card-image { height: 160px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); }
 .card-body { padding: 12px; display: grid; gap: 8px; }
