@@ -3,11 +3,30 @@ import { TabView, TabPanel } from 'primereact/tabview'
 import { Rating } from 'primereact/rating'
 import { Button } from 'primereact/button'
 import { Tag } from 'primereact/tag'
+import SchemaOrg from '../components/SchemaOrg'
 
 export default function Product() {
   return (
     <div className="page">
       <Navbar />
+      <SchemaOrg data={{
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Denim Jacket",
+        "brand": { "@type": "Brand", "name": "Levi's" },
+        "category": "Jackets",
+        "offers": {
+          "@type": "Offer",
+          "price": "85",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4",
+          "reviewCount": "124"
+        }
+      }} />
       <div className="pdp">
         <div className="gallery">
           <div className="image" />
